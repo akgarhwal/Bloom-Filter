@@ -22,7 +22,9 @@ n -> estimated number of element to add in bloom filter
 
 ## Install
 
-TODO
+```
+go get github.com/akgarhwal/bloomfilter
+```
 
 ## Usage
 
