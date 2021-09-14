@@ -1,5 +1,8 @@
 # Bloom-Filter
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/akgarhwal/BloomFilter/main/LICENSE)   [![GoDoc](https://godoc.org/github.com/akgarhwal/bloomfilter?status.svg)](https://pkg.go.dev/github.com/akgarhwal/bloomfilter)
+
+
 A [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) is a space-efficient probabilistic data structure, conceived by Burton Howard Bloom in 1970, that is used to test whether an element is a member of a set.
 
 An empty Bloom filter is a bit array of <b>m</b> bits, all set to 0. There must also be <b>k</b> different hash functions defined, each of which maps or hashes some set element to one of the <b>m</b> array positions, generating a uniform random distribution.
