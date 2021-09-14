@@ -31,7 +31,7 @@ go get github.com/akgarhwal/bloomfilter
 
 ## Usage
 
-```
+```go
 bf := bloomfilter.NewBloomFilter(100, 0.1)
 bf.Insert([]byte("sachin"))
 bf.Insert([]byte("rohit"))
