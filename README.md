@@ -20,7 +20,11 @@ n -> estimated number of element to add in bloom filter
 ```
 <b>NOTE:</b> <i>Delete</i> operation can be supported by using [Counting Bloom filter](https://en.wikipedia.org/wiki/Counting_Bloom_filter).
 
-## Package Usage
+## Install
+
+TODO
+
+## Usage
 
 TODO
 
