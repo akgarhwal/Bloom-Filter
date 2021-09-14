@@ -36,8 +36,8 @@ func (bf *bloomFilter) Insert(element []byte) {
 }
 
 // Lookup(x) : to check whether an element is already present in Bloom Filter
-// if element is present it will return false with a false positive probability.
-// if element is not present it will return true
+// if element is present it will return true with a false positive probability.
+// if element is not present it will return false
 func (bf *bloomFilter) Lookup(element []byte) bool {
 	return bf.lookup(element)
 }
