@@ -28,7 +28,22 @@ go get github.com/akgarhwal/bloomfilter
 
 ## Usage
 
-TODO
+```
+bf := bloomfilter.NewBloomFilter(100, 0.1)
+bf.Insert([]byte("sachin"))
+bf.Insert([]byte("rohit"))
+bf.Insert([]byte("virat"))
+bf.Insert([]byte("msdhoni"))
+
+// new user name to check
+newUserName := "msdhoni"
+
+if bf.Lookup([]byte(newUserName)) {
+  fmt.Println(newUserName, " is present")
+} else {
+  fmt.Println(newUserName, " is NOT present")
+}
+```
 
 ## Probability of False Positive
 If <b>m</b> is size of bit array and <b>n</b> is number of elements to be inserted and <b>k</b> is number of hash functions, then the probability of false positive ε can be calculated as:<br/>
