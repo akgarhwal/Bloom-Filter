@@ -5,12 +5,7 @@ import (
 	"math"
 )
 
-type BloomFilter interface {
-	Insert([]byte)
-	Lookup([]byte) bool
-}
-
-type bloomFilter struct {
+type BloomFilter struct {
 	n        uint64
 	m        uint32
 	k        int
@@ -18,9 +13,9 @@ type bloomFilter struct {
 }
 
 // create a new bloom filter
-func NewBloomFilter(n uint64, falsePositiveProb float64) BloomFilter {
+func NewBloomFilter(n uint64, falsePositiveProb float64) *BloomFilter {
 
-	bf := bloomFilter{}
+	bf := BloomFilter{}
 
 	bf.n = n
 	bf.estimateM(n, falsePositiveProb)
@@ -31,18 +26,18 @@ func NewBloomFilter(n uint64, falsePositiveProb float64) BloomFilter {
 }
 
 // Insert(x) : To insert an element in the Bloom Filter.
-func (bf *bloomFilter) Insert(element []byte) {
+func (bf *BloomFilter) Insert(element []byte) {
 	bf.insert(element)
 }
 
 // Lookup(x) : to check whether an element is already present in Bloom Filter
 // if element is present it will return true with a false positive probability.
 // if element is not present it will return false
-func (bf *bloomFilter) Lookup(element []byte) bool {
+func (bf *BloomFilter) Lookup(element []byte) bool {
 	return bf.lookup(element)
 }
 
-func (bf *bloomFilter) insert(element []byte) {
+func (bf *BloomFilter) insert(element []byte) {
 	for i := 1; i <= bf.k; i++ {
 		hash := bf.calculateHash(element)
 		index := bf.calculateIndex(hash, uint(i))
@@ -50,7 +45,7 @@ func (bf *bloomFilter) insert(element []byte) {
 	}
 }
 
-func (bf *bloomFilter) lookup(element []byte) bool {
+func (bf *BloomFilter) lookup(element []byte) bool {
 	for i := 1; i <= bf.k; i++ {
 		hash := bf.calculateHash(element)
 		index := bf.calculateIndex(hash, uint(i))
@@ -63,17 +58,17 @@ func (bf *bloomFilter) lookup(element []byte) bool {
 	return true
 }
 
-func (bf *bloomFilter) calculateHash(data []byte) uint {
+func (bf *BloomFilter) calculateHash(data []byte) uint {
 	hash := fnv.New32()
 	hash.Write(data)
 	return uint(hash.Sum32())
 }
 
-func (bf *bloomFilter) calculateIndex(offset uint, hash uint) uint {
+func (bf *BloomFilter) calculateIndex(offset uint, hash uint) uint {
 	return (hash + offset) % uint(bf.m)
 }
 
-func (bf *bloomFilter) estimateM(n uint64, falsePositiveProb float64) {
+func (bf *BloomFilter) estimateM(n uint64, falsePositiveProb float64) {
 	//m = -1 * (n * lnP)/(ln2)^2
 	nf := float64(n)
 	ln2 := math.Log(2)
@@ -83,7 +78,7 @@ func (bf *bloomFilter) estimateM(n uint64, falsePositiveProb float64) {
 	bf.m = uint32(-1 * num / deno)
 }
 
-func (bf *bloomFilter) estimateK(n uint64) {
+func (bf *BloomFilter) estimateK(n uint64) {
 	//k = m/n * ln2
 	nf := float64(n)
 	ln2 := math.Log(2)

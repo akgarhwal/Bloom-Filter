@@ -31,7 +31,7 @@ go get github.com/akgarhwal/bloomfilter
 TODO
 
 ## Probability of False Positive
-The probability of false positive ε can be calculated as:<br/>
+If <b>m</b> is size of bit array and <b>n</b> is number of elements to be inserted and <b>k</b> is number of hash functions, then the probability of false positive ε can be calculated as:<br/>
 <img width="198" alt="Screenshot 2021-09-14 at 1 56 10 PM" src="https://user-images.githubusercontent.com/20686129/133223233-d695899c-fb09-4fd7-a725-3a4ce5071e07.png">
 
 ## Size of Bit Array:
