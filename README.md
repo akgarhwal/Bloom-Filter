@@ -60,3 +60,7 @@ If expected number of elements <b>n</b> is known and desired false positive prob
 The number of hash functions <b>k</b> must be a positive integer. If <b>m</b> is size of bit array and <b>n</b> is number of elements to be inserted, then <b>k</b> can be calculated as:<br>
 <img width="138" alt="Screenshot 2021-09-14 at 2 05 38 PM" src="https://user-images.githubusercontent.com/20686129/133224561-82cb32c3-9382-40df-a96c-56d7b4a6e753.png">
 
+
+
+## License
+This package is licensed under MIT license. See LICENSE for details.
