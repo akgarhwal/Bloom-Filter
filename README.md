@@ -20,6 +20,10 @@ n -> estimated number of element to add in bloom filter
 ```
 <b>NOTE:</b> <i>Delete</i> operation can be supported by using [Counting Bloom filter](https://en.wikipedia.org/wiki/Counting_Bloom_filter).
 
+## Package Usage
+
+TODO
+
 ## Probability of False Positive
 The probability of false positive ε can be calculated as:<br/>
 <img width="198" alt="Screenshot 2021-09-14 at 1 56 10 PM" src="https://user-images.githubusercontent.com/20686129/133223233-d695899c-fb09-4fd7-a725-3a4ce5071e07.png">
