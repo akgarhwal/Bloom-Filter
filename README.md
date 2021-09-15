@@ -32,6 +32,9 @@ go get github.com/akgarhwal/bloomfilter
 ## Usage
 
 ```go
+// create a new bloom filter 
+// with 100 elements to be inserted and 
+// false positive probability of 0.1
 bf := bloomfilter.NewBloomFilter(100, 0.1)
 bf.Insert([]byte("sachin"))
 bf.Insert([]byte("rohit"))
