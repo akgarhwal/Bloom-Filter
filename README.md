@@ -19,7 +19,8 @@ n -> estimated number of element to add in bloom filter
 ## Supported Operations
 ```
   insert(x) : To insert an element in the Bloom Filter.
-  lookup(x) : to check whether an element is already present in Bloom Filter with a positive false probability.
+  lookup(x) : to check whether an element is already present 
+              in Bloom Filter with a false positive probability.
 ```
 <b>NOTE:</b> <i>Delete</i> operation can be supported by using [Counting Bloom filter](https://en.wikipedia.org/wiki/Counting_Bloom_filter).
 
